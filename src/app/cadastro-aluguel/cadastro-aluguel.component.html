@@ -1,0 +1,59 @@
+<div class="card flex justify-content-center">
+    <p-menu [model]="navegacao">
+        <ng-template pTemplate="item" let-item>
+            <ng-container *ngIf="item.route; else elseBlock">
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-container>
+            <ng-template #elseBlock>
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-template>
+        </ng-template>
+    </p-menu>
+  </div>
+
+
+<h1>Nome do cliente: </h1>
+<!--Formulario de Cadastrar um novo aluguel-->
+<form id="formCadastro">
+    <label>Data incial do aluguel</label>
+    <p-calendar [(ngModel)]="aluguel.dataAluguel" [ngModelOptions]="{standalone:true}" dateFormat="dd/mm/yy" />
+    <br>
+    <br>
+    <label>Data do vencimento do aluguel</label>
+    <p-calendar [(ngModel)]="aluguel.dataVencimento" [ngModelOptions]="{standalone:true}" dateFormat="dd/mm/yy" />
+    <p>Escolha o carro que será alugado</p>
+    <p-dropdown
+    [options]="carros"
+    [(ngModel)]="aluguel.idCarro" 
+    [ngModelOptions]="{standalone:true}"
+    optionValue="idCarro"
+    optionLabel="modeloCarro" 
+    placeholder="Selecione o carro" />
+    <br>
+    <br>
+    <p-dropdown
+    [options]="clientes"
+    [(ngModel)]="aluguel.idCliente" 
+    [ngModelOptions]="{standalone:true}"
+    optionValue="idCliente"
+    optionLabel="nomeCliente" 
+    placeholder="Selecione o cliente"/>
+    <br>
+    <br>
+    <p-dropdown
+    [options]="colaboradores"
+    [(ngModel)]="aluguel.idColaborador" 
+    [ngModelOptions]="{standalone:true}"
+    optionLabel="nomeColaborador"
+    optionValue="idColaborador"
+    placeholder="Selecione o colaborador"/>
+    <br>
+    <br>
+    <p-button (click)="enviarDados()" form="formCadastro">Enviar</p-button>
+</form>

@@ -1,0 +1,45 @@
+<!--Sistema de navegação com o botão para voltar para a tela inicial-->
+<div class="card flex justify-content-center">
+    <p-menu [model]="navegacao">
+        <ng-template pTemplate="item" let-item>
+            <ng-container *ngIf="item.route; else elseBlock">
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-container>
+            <ng-template #elseBlock>
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-template>
+        </ng-template>
+    </p-menu>
+  </div>
+
+<br>
+<br>
+<h1>Lista de Colaboradores: </h1>
+<br>
+<!--Tabela com todos o colaboradores-->
+<div class="card">
+    <p-table [value]="colaboradores" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Cargo</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-colaborador>
+                <tr>
+                    <td>{{ colaborador.idColaborador }}</td>
+                    <td>{{ colaborador.nomeColaborador }}</td>
+                    <td>{{ colaborador.emailColaborador }}</td>
+                    <td>{{ colaborador.cargoColaborador }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>

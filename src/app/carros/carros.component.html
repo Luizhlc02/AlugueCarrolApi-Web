@@ -1,0 +1,47 @@
+<!--Sistema de navegação com o botão para voltar para a tela inicial-->
+<div class="card flex justify-content-center">
+    <p-menu [model]="navegacao">
+        <ng-template pTemplate="item" let-item>
+            <ng-container *ngIf="item.route; else elseBlock">
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-container>
+            <ng-template #elseBlock>
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-template>
+        </ng-template>
+    </p-menu>
+  </div>
+
+<br>
+<br>
+<h1>Lista de Carros:</h1>
+
+<!--Tabela com todos o carros-->
+<div class="card">
+<p-table [value]="carros" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Modelo</th>
+                <th>Motor</th>
+                <th>Quilometragem</th>
+                <th>Ano</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-carro>
+            <tr>
+                <td>{{ carro.idCarro }}</td>
+                <td>{{ carro.modeloCarro }}</td>
+                <td>{{ carro.motorCarro }}</td>
+                <td>{{ carro.kmRodado }}</td>
+                <td>{{ carro.anoFabricado }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

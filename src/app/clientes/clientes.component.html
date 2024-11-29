@@ -1,0 +1,47 @@
+<!--Sistema de navegação com o botão para voltar para a tela inicial-->
+<div class="card flex justify-content-center">
+    <p-menu [model]="navegacao">
+        <ng-template pTemplate="item" let-item>
+            <ng-container *ngIf="item.route; else elseBlock">
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-container>
+            <ng-template #elseBlock>
+                <a [routerLink]="item.route" class="p-menuitem-link">
+                    <span [class]="item.icon"></span>
+                    <span class="ml-2">{{ item.label }}</span>
+                </a>
+            </ng-template>
+        </ng-template>
+    </p-menu>
+  </div>
+
+<br>
+<br>
+<h1>Clientes cadastrados</h1>
+<br>
+<!--Tabela com todos os clientes cadastrados-->
+<div class="card">
+    <p-table [value]="clientes" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-cliente>
+                <tr>
+                    <td>{{ cliente.idCliente }}</td>
+                    <td>{{ cliente.nomeCliente }}</td>
+                    <td>{{ cliente.cpfCliente }}</td>
+                    <td>{{ cliente.emailCliente }}</td>
+                    <td>{{ cliente.telefoneCliente }}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
