@@ -1,40 +1,24 @@
-<!--Navegação entre telas/-->
-<div class="card flex justify-content-center">
-    <p-menu [model]="navegacao">
-        <ng-template pTemplate="item" let-item>
-            <ng-container *ngIf="item.route; else elseBlock">
-                <a [routerLink]="item.route" class="p-menuitem-link">
-                    <span [class]="item.icon"></span>
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-            </ng-container>
-            <ng-template #elseBlock>
-                <a [routerLink]="item.route" class="p-menuitem-link">
-                    <span [class]="item.icon"></span>
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-            </ng-template>
-        </ng-template>
-    </p-menu>
-  </div>
+<app-nav-bar></app-nav-bar>
 <br><br>
 <p-floatLabel>
-    <input id="nomeColaborador" type="text" pInputText [(ngModel)]="colaborador.nomeColaborador"/>
+    <input id="nomeColaborador" type="text" pInputText [(ngModel)]="colaboradorService.colaborador.nomeColaborador"/>
     <label for="nomeColaborador">Digite o nome do colaborador</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="emailColaborador" type="text" pInputText [(ngModel)]="colaborador.emailColaborador"/>
+    <input id="emailColaborador" type="text" pInputText [(ngModel)]="colaboradorService.colaborador.emailColaborador"/>
     <label for="emailColaborador">Digite o email do colaborador</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="cargoColaborador" type="text" pInputText [(ngModel)]="colaborador.cargoColaborador"/>
+    <input id="cargoColaborador" type="text" pInputText [(ngModel)]="colaboradorService.colaborador.cargoColaborador"/>
     <label for="cargoColaborador">Digite o cargo do colaborador</label>
 </p-floatLabel>
 <br>
 <br>
+<p-toast />
+<p-button label="Esqueci a senha" [text]="true" severity="info" />
 <p-button label="Submit" (click)="enviarDados()"  />
 

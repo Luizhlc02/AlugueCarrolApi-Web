@@ -1,0 +1,36 @@
+<app-nav-bar></app-nav-bar>
+<br><br><br>
+<p-floatLabel>
+    <input id="nomeCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.nomeCliente"/>
+    <label for="nomeCliente">Digite o nome do cliente</label>
+</p-floatLabel>
+<br>
+<br>
+<p-floatLabel>
+    <input id="cpfCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.cpfCliente"/>
+    <label for="cpfCliente">Digite o cpf do cliente</label>
+</p-floatLabel>
+<br>
+<br>
+<p-floatLabel>
+    <input id="emailCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.emailCliente"/>
+    <label for="emailCliente">Digite o email do cliente</label>
+</p-floatLabel>
+<br>
+<br>
+<p-floatLabel>
+    <input id="telefoneCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.telefoneCliente"/>
+    <label for="telefoneCliente">Digite o numero de telefone</label>
+</p-floatLabel>
+<br>
+<br>
+<p-floatLabel>
+    <input id="senhaCliente" type="password" pInputText [(ngModel)]="clienteService.cliente.telefoneCliente"/>
+    <label for="senhaCliente">Digite a senha</label>
+</p-floatLabel>
+<br>
+<br>
+<p-toast />
+<p-button label="Submit" (click)="enviarDados()"  />
+
+

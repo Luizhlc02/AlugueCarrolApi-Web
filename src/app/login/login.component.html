@@ -1,0 +1,18 @@
+<app-nav-bar></app-nav-bar>
+<br><br><br>
+<p-floatLabel>
+    <input id="emailCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.emailCliente"/>
+    <label for="emailCliente">Digite seu email</label>
+</p-floatLabel>
+<br>
+<br>
+<p-floatLabel>
+    <input id="senhaCliente" type="password" pInputText [(ngModel)]="clienteService.cliente.nomeCliente"/>
+    <label for="senhaCliente">Digite sua senha</label>
+</p-floatLabel>
+<br><br>
+<p-button label="Esqueci a senha" [text]="true" severity="info" />
+<p-toast />
+<p-button label="Enviar" (click)="receberDados()"  />
+
+

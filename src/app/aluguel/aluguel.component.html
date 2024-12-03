@@ -1,0 +1,73 @@
+<app-nav-bar ></app-nav-bar>
+
+<h1>Lista de Alugueis</h1>
+
+<br><br>
+<!--Lista de Alugueis-->
+<div class="card">
+    <p-table [value]="aluguelService.alugueis" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Data do Aluguel</th>
+                    <th>Data do Vencimento</th>
+                    <th>Carro Alugado</th>
+                    <th>Cliente</th>
+                    <th>Colaborador</th>
+                    <th>Status</th>
+                    <th>Exibir Aluguel</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-aluguel>
+                <tr>
+                    <td>{{ aluguel.idAluguel }}</td>
+                    <td>{{ aluguel.dataAluguel }}</td>
+                    <td>{{ aluguel.dataVencimento }}</td>
+                    <td>{{ aluguel.carro?.modeloCarro }}</td>
+                    <td>{{ aluguel.cliente?.nomeCliente }}</td>
+                    <td>{{ aluguel.colaborador?.nomeColaborador }}</td>
+                    <td>{{ aluguel.statusAluguel}}</td>
+                    <td><p-button (onClick)="showDialog(aluguel.idAluguel)" label="Show" /></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+<!--Tabela do Dialog com informações adicionais-->
+    <p-dialog header="Informações sobre o aluguel" [modal]="true" [(visible)]="visible" [style]="{ width: '70rem'}">
+        <p-table [value]="aluguelService.aluguelbyId ? [aluguelService.aluguelbyId] : []" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Data do Aluguel</th>
+                    <th>Data do Vencimento</th>
+                    <th>Carro Alugado</th>
+                    <th>Cliente</th>
+                    <th>Colaborador</th>
+                    <th>Status</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-aluguel>
+                <tr>
+                <td>{{ aluguel.idAluguel }}</td>
+                <td>{{ aluguel.dataAluguel }}</td>
+                <td>{{ aluguel.dataVencimento }}</td>
+                <td>{{ aluguel.carro?.modeloCarro }}</td>
+                <td>{{ aluguel.cliente?.nomeCliente }}</td>
+                <td>{{ aluguel.colaborador?.nomeColaborador }}</td>
+                <td>{{aluguel.statusAluguel}}</td>
+                <td><p-button (onClick)="alterarStatus(aluguel.idAluguel)" label="Finalizar Aluguel" /></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p-dialog>
+
+<!--Paginação-->    
+    <div *ngIf="aluguelService.page" class="card flex justify-content-center">
+        <p-paginator 
+            (onPageChange)="onPageChange($event)" 
+            [first]="first!" 
+            [rows]="rows" 
+            [totalRecords]="aluguelService.page.totalElements" 
+            [rowsPerPageOptions]="[10, 20, 30]" />
+    
+    </div>

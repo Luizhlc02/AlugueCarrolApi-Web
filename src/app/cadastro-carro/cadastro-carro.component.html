@@ -1,46 +1,29 @@
-<!--Navegação entre telas/-->
-<div class="card flex justify-content-center">
-    <p-menu [model]="navegacao">
-        <ng-template pTemplate="item" let-item>
-            <ng-container *ngIf="item.route; else elseBlock">
-                <a [routerLink]="item.route" class="p-menuitem-link">
-                    <span [class]="item.icon"></span>
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-            </ng-container>
-            <ng-template #elseBlock>
-                <a [routerLink]="item.route" class="p-menuitem-link">
-                    <span [class]="item.icon"></span>
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-            </ng-template>
-        </ng-template>
-    </p-menu>
-  </div>
-
+<app-nav-bar></app-nav-bar>
+<br><br><br>
 <p-floatLabel>
-    <input id="modeloCarro" type="text" pInputText [(ngModel)]="carro.modeloCarro"/>
+    <input id="modeloCarro" type="text" pInputText [(ngModel)]="carroService.carro.modeloCarro"/>
     <label for="modeloCarro">Digite o modelo do Carro</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="motorCarro" type="text" pInputText [(ngModel)]="carro.motorCarro"/>
+    <input id="motorCarro" type="text" pInputText [(ngModel)]="carroService.carro.motorCarro"/>
     <label for="motorCarro">Digite o motor do carro</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="kmRodado" type="text" pInputText [(ngModel)]="carro.kmRodado"/>
+    <input id="kmRodado" type="text" pInputText [(ngModel)]="carroService.carro.kmRodado"/>
     <label for="kmRodado">Digite a quilometragem do carro</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="anoFabricado" type="text" pInputText [(ngModel)]="carro.anoFabricado"/>
+    <input id="anoFabricado" type="text" pInputText [(ngModel)]="carroService.carro.anoFabricado"/>
     <label for="anoFabricado">Digite o ano de fabricação</label>
 </p-floatLabel>
 <br>
 <br>
+<p-toast />
 <p-button label="Submit" (click)="enviarDados()"  />
 

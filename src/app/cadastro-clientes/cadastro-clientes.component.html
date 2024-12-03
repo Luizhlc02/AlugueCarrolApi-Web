@@ -1,48 +1,30 @@
-<!--Navegação entre telas/-->
-<div class="card flex justify-content-center">
-    <p-menu [model]="navegacao">
-        <ng-template pTemplate="item" let-item>
-            <ng-container *ngIf="item.route; else elseBlock">
-                <a [routerLink]="item.route" class="p-menuitem-link">
-                    <span [class]="item.icon"></span>
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-            </ng-container>
-            <ng-template #elseBlock>
-                <a [routerLink]="item.route" class="p-menuitem-link">
-                    <span [class]="item.icon"></span>
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-            </ng-template>
-        </ng-template>
-    </p-menu>
-  </div>
-
+<app-nav-bar></app-nav-bar>
 <br><br><br>
 <p-floatLabel>
-    <input id="nomeCliente" type="text" pInputText [(ngModel)]="cliente.nomeCliente"/>
+    <input id="nomeCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.nomeCliente"/>
     <label for="nomeCliente">Digite o nome do cliente</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="cpfCliente" type="text" pInputText [(ngModel)]="cliente.cpfCliente"/>
+    <input id="cpfCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.cpfCliente"/>
     <label for="cpfCliente">Digite o cpf do cliente</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="emailCliente" type="text" pInputText [(ngModel)]="cliente.emailCliente"/>
+    <input id="emailCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.emailCliente"/>
     <label for="emailCliente">Digite o email do cliente</label>
 </p-floatLabel>
 <br>
 <br>
 <p-floatLabel>
-    <input id="telefoneCliente" type="text" pInputText [(ngModel)]="cliente.telefoneCliente"/>
+    <input id="telefoneCliente" type="text" pInputText [(ngModel)]="clienteService.cliente.telefoneCliente"/>
     <label for="telefoneCliente">Digite o numero de telefone</label>
 </p-floatLabel>
 <br>
 <br>
+<p-toast />
 <p-button label="Submit" (click)="enviarDados()"  />
 
 

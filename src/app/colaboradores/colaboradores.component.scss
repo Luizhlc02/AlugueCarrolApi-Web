@@ -1,0 +1,15 @@
+@import "primeicons/primeicons.css";
+h1{
+    color: #495057;
+  }
+  ::ng-deep .p-menu {
+    position: relative;  
+    left: 30%;
+    padding-right: 70px;
+    width: 500px;
+    padding-left: 20px;   
+    top: 10px;
+    font-size: large;
+    font-style: oblique;
+    background-color: rgb(12, 148, 245);
+  }
