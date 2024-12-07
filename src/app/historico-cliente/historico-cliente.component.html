@@ -1,0 +1,28 @@
+<!--Lista de Alugueis-->
+<div class="card">
+    <p-table [value]="aluguelService.aluguelByIdCliente ? [aluguelService.aluguelByIdCliente] : []" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Id</th>
+                    <th>Data do Aluguel</th>
+                    <th>Data do Vencimento</th>
+                    <th>Carro Alugado</th>
+                    <th>Cliente</th>
+                    <th>Colaborador</th>
+                    <th>Status</th>
+                    <th>Exibir Aluguel</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-aluguel>
+                <tr>
+                    <td>{{ aluguel.idAluguel }}</td>
+                    <td>{{ aluguel.dataAluguel }}</td>
+                    <td>{{ aluguel.dataVencimento }}</td>
+                    <td>{{ aluguel.carro?.modeloCarro }}</td>
+                    <td>{{ aluguel.cliente?.nomeCliente }}</td>
+                    <td>{{ aluguel.colaborador?.nomeColaborador }}</td>
+                    <td>{{ aluguel.statusAluguel}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>

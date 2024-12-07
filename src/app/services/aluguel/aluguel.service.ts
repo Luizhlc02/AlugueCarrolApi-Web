@@ -18,6 +18,7 @@ export class AluguelService {
  
  public alugueis: Aluguel[] = [];
  public aluguelbyId!: Aluguel;
+ public aluguelByIdCliente!: Aluguel
  
   public aluguel = {
     dataAluguel: "",  

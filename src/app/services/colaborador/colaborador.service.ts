@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ColaboradorService{
+  
   constructor(private http: HttpClient) { }
 
   private apiUrl = "/api/colaborador"
@@ -15,7 +16,8 @@ export class ColaboradorService{
   public colaborador: Colaborador = {
     nomeColaborador: "",
     emailColaborador: "",
-    cargoColaborador: ""
+    cargoColaborador: "",
+    senhaColaborador: ""
   }
 
   getApiAluguel(){

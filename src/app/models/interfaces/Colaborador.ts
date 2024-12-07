@@ -1,6 +1,7 @@
 export interface Colaborador{ 
-    idColaborador?: number,
-    nomeColaborador: string,
-    emailColaborador: string,
+    idColaborador?: number
+    nomeColaborador: string
+    emailColaborador: string
     cargoColaborador: string
+    senhaColaborador: string
    }

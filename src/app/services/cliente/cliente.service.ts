@@ -17,7 +17,7 @@ export class ClienteService {
     cpfCliente: "",
     emailCliente:"", 
     telefoneCliente:"",
-    senhaUsuario:""
+    senhaCliente:""
   }
   
   getApiAluguel(){

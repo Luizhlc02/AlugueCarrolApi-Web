@@ -1,0 +1,22 @@
+<div class="card flex justify-content-center gap-3">
+    <a routerLink="/home" class="p-button font-bold">
+        Voltar
+    </a>
+</div>
+
+<p-floatLabel>
+    <input id="emailCliente" type="text" pInputText [(ngModel)]="loginService.login.email"/>
+    <label for="emailCliente">Digite seu email</label>
+</p-floatLabel>
+<br>
+<br>
+<div class="card flex justify-content-center">
+    <p-password [(ngModel)]="loginService.login.senha" [toggleMask]="true" [feedback]="false" />
+</div>
+<br>
+<br>
+<p-toast />
+<p-button label="Esqueci a senha" [text]="true" severity="info" />
+<p-button label="Submit" (click)="enviarDados()"  />
+
+

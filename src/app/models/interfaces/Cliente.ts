@@ -4,6 +4,6 @@ export interface Cliente {
     cpfCliente: String
     emailCliente: String  
     telefoneCliente: String
-    senhaUsuario: String
+    senhaCliente: String
   }
   
